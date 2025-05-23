@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Blog</title>
+    <title>Visualizações Interativas</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -35,6 +35,12 @@
             font-size: 16px;
             margin: 10px 0;
         }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            margin-top: 20px;
+        }
         a {
             display: inline-block;
             margin-top: 20px;
@@ -53,9 +59,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>Bem-vindo ao Blog!</h1>
-        <p>Aqui você encontrará as conclusões e insights gerados a partir da análise de redes.</p>
-        <a href="{{ url_for('home') }}">Voltar para Home</a>
+        <h1>Visualizações Interativas</h1>
+        <p>Abaixo estão as métricas calculadas a partir do grafo de transações:</p>
+        
+        <!-- Informações dinâmicas sobre o grafo -->
+        <p><strong>Número de Nós:</strong> {{ num_vertices }}</p>
+        <p><strong>Número de Arestas:</strong> {{ num_links }}</p>
+        
+        <!-- Exemplo de visualização interativa -->
+        <iframe src="{{ url_for('static', filename='graficos/rede_interativa.html') }}"></iframe>
+        
+        <a href="{{ url_for('home') }}">Voltar para a Página Inicial</a>
     </div>
 </body>
 </html>

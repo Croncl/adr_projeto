@@ -2,3 +2,10 @@ Flask
 Flask-WTF
 WTForms
 Flask-SQLAlchemy
+pandas
+networkx
+matplotlib
+seaborn
+pyvis
+dask
+pyarrow

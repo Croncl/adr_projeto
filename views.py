@@ -1,20 +1,59 @@
-# filepath: d:\WS\ws_python\Analise_de_Redes_S5\AdR_projeto\views.py
-from flask import render_template, redirect, url_for, flash
+import pandas as pd
+import networkx as nx
+from flask import render_template
 from main import app
-from forms import LoginForm
 
+# Função para carregar os datasets
+def load_datasets():
+    links_path = "static/dataset/bitcoin.links.csv"
+    vertices_path = "static/dataset/bitcoin.vertices.csv"
+    
+    # Carregar os arquivos CSV
+    links = pd.read_csv(links_path)
+    vertices = pd.read_csv(vertices_path)
+    
+    return links, vertices
 
-@app.route("/", methods=["GET", "POST"])
+# Função para criar o grafo
+def create_graph():
+    links, vertices = load_datasets()
+    
+    # Usar os nomes corretos das colunas
+    source_column = 'src_id'  # Coluna de origem
+    target_column = 'dst_id'  # Coluna de destino
+    weight_column = 'count'   # Coluna de peso (número de transações)
+    
+    # Criar o grafo direcionado
+    G = nx.DiGraph()
+    
+    # Adicionar nós
+    G.add_nodes_from(vertices['vid'])  # Certifique-se de que a coluna 'id' existe no arquivo vertices.csv
+    
+    # Adicionar arestas
+    for _, row in links.iterrows():
+        G.add_edge(row[source_column], row[target_column], weight=row[weight_column])
+    
+    return G
+
+@app.route("/")
 def home():
-    form = LoginForm()
-    if form.validate_on_submit():
-        if form.username.data == "admin" and form.password.data == "123":
-            return redirect(url_for("blog"))
-        else:
-            flash("Usuário ou senha incorretos.")
-    return render_template("home.html", form=form)
-
+    return render_template("home.html")
 
 @app.route("/blog")
 def blog():
     return render_template("blog.html")
+
+@app.route("/visualizations")
+def visualizations():
+    # Criar o grafo
+    G = create_graph()
+    
+    # Calcular métricas
+    num_vertices = G.number_of_nodes()
+    num_links = G.number_of_edges()
+    
+    return render_template(
+        "visualizations.html",
+        num_vertices=num_vertices,
+        num_links=num_links
+    )

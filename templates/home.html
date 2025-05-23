@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Projeto de Análise de Redes</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -15,86 +15,49 @@
             align-items: center;
             justify-content: center;
         }
-        .login-box {
-            background: rgba(255,255,255,0.75); /* mais transparente */
+        .content-box {
+            background: rgba(255, 255, 255, 0.85); /* Fundo branco translúcido */
             padding: 40px 30px;
             border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.25);
-            min-width: 340px;
-        }
-        .login-box h1 {
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+            max-width: 600px;
             text-align: center;
-            margin-bottom: 24px;
+        }
+        .content-box h1 {
             color: #222;
             font-weight: 700;
+            margin-bottom: 24px;
             letter-spacing: 1px;
         }
-        .login-box label {
+        .content-box p {
             color: #333;
-            font-weight: 500;
-        }
-        .login-box input[type="text"],
-        .login-box input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 4px;
-            border: 1px solid #bbb;
-            border-radius: 6px;
             font-size: 16px;
-            background: #f8f8f8;
-            color: #222;
-            box-sizing: border-box;
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
-        .login-box input[type="submit"], .login-box button {
-            width: 100%;
-            padding: 12px;
+        .content-box a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
             background: #1976d2;
             color: #fff;
-            border: none;
+            text-decoration: none;
             border-radius: 6px;
-            font-size: 16px;
             font-weight: 600;
-            cursor: pointer;
-            margin-top: 12px;
             transition: background 0.2s;
         }
-        .login-box input[type="submit"]:hover, .login-box button:hover {
+        .content-box a:hover {
             background: #125ea2;
-        }
-        .login-box ul {
-            color: #b71c1c;
-            margin-top: 12px;
-            padding-left: 18px;
-        }
-        .login-box form p {
-            margin-bottom: 18px;
         }
     </style>
 </head>
 <body>
-    <div class="login-box">
-        <h1>Login</h1>
-        <form method="POST">
-            {{ form.hidden_tag() }}
-            <p>
-                {{ form.username.label }}<br>
-                {{ form.username(size=32, placeholder="Digite seu usuário") }}
-            </p>
-            <p>
-                {{ form.password.label }}<br>
-                {{ form.password(size=32, placeholder="Digite sua senha") }}
-            </p>
-            <p>{{ form.submit() }}</p>
-        </form>
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <ul>
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-          {% endif %}
-        {% endwith %}
+    <div class="content-box">
+        <h1>Bem-vindo ao Projeto de Análise de Redes</h1>
+        <p>Este projeto apresenta uma análise exploratória de redes baseada em transações de Bitcoin.</p>
+        <p>Explore as páginas abaixo para mais detalhes:</p>
+        <a href="{{ url_for('blog') }}">Resultados e Conclusões</a>
+        <a href="{{ url_for('visualizations') }}" style="margin-left: 10px;">Visualizações Interativas</a>
     </div>
 </body>
 </html>

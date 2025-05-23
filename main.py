@@ -7,6 +7,5 @@ from views import *
 
 app.config["SECRET_KEY"] = secrets.token_hex(16)
 
-
 if __name__ == "__main__":
     app.run(debug=True)

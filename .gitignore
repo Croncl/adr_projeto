@@ -94,3 +94,9 @@ test.sqlite3
 ### Configurações específicas ###
 pytest.ini
 tempCodeRunnerFile.py
+
+#arquivos  do dataset
+bitcoin.links.sframe/
+bitcoin.vertices.sframe/
+
+dataset/static/dataset/bitcoin.*.csv
