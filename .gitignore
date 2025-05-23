@@ -1,0 +1,96 @@
+### Python ###
+# Bytecode e cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+ENV/
+venv*/
+pythonenv/
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.*
+.env[.local]
+.venv
+
+# Pacotes e builds
+*.egg
+*.egg-info/
+dist/
+build/
+pip-wheel-metadata/
+*.whl
+site/
+
+# Testes e cobertura
+.pytest_cache/
+.coverage
+htmlcov/
+.nox/
+.tox/
+
+# Documentação
+docs/_build/
+
+### IDEs e Editores ###
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# PyCharm/IntelliJ
+.idea/
+*.iml
+
+# Outros editores
+*.swp
+*.swo
+*~
+.~lock.*
+
+### Sistema ###
+# macOS
+.DS_Store
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### Jupyter ###
+.ipynb_checkpoints/
+*.ipynb
+
+### Bancos de dados locais ###
+*.sqlite
+*.sqlite3
+*.db
+test.db
+test.sqlite3
+
+### Logs e temporários ###
+*.log
+*.cache
+*.tmp
+*.bak
+*.pid
+*.prof
+*.pot
+*.mo
+
+### Configurações específicas ###
+pytest.ini
+tempCodeRunnerFile.py
