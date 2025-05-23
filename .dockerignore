@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite
+*.sqlite3
+*.log
+.env
+.venv/
+venv/
+env/
+.git
+.gitignore
+.vscode/
+.idea/
+test_basic.py
+
+### Configurações específicas ###
+pytest.ini
+tempCodeRunnerFile.py
