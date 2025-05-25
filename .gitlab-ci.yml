@@ -4,8 +4,11 @@ stages:
   - test
 
 before_script:
-  - pip install --upgrade pip
   - pip install -r requirements.txt
+  - mkdir -p static/dataset
+  - echo "src_id,dst_id,count,mindate,maxdate" > static/dataset/bitcoin.links.csv
+  - echo "a,b,1,20200101T000000,20200101T000000" >> static/dataset/bitcoin.links.csv
+  - echo "b,c,2,20200102T000000,20200102T000000" >> static/dataset/bitcoin.links.csv
 
 test:
   stage: test
