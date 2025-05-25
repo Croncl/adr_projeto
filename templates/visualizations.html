@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Visualizações Interativas</title>
+    <title>Visualização do Grafo Bitcoin</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -19,57 +19,138 @@
         }
         .container {
             background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
+            padding: 30px;
             border-radius: 16px;
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
-            max-width: 900px;
+            max-width: 1200px;
             width: 90%;
-            margin-top: 30px;
+            margin: 30px auto;
             text-align: center;
         }
         h1 {
-            color: #222;
+            color: #1976d2;
             margin-bottom: 20px;
+            font-size: 2.2em;
         }
-        p {
-            font-size: 16px;
-            margin: 10px 0;
+        h2 {
+            color: #333;
+            margin: 25px 0 15px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #1976d2;
+            padding-bottom: 8px;
+            display: inline-block;
         }
-        iframe {
+        .graph-container {
             width: 100%;
-            height: 500px;
-            border: none;
-            margin-top: 20px;
+            max-width: 1200px;   /* Limite opcional para telas grandes */
+            height: 750px;
+            margin: 0 auto;      /* Centraliza na página */
+            background: #222;    /* Fundo escuro para combinar com o grafo */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+            padding: 16px 0;
+        }
+        .stats-card {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .stat {
+            text-align: center;
+            padding: 10px;
+        }
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #1976d2;
+            margin: 5px 0;
+        }
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
         }
         a {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 20px;
+            margin: 20px 10px;
+            padding: 12px 25px;
             background: #1976d2;
             color: #fff;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
         a:hover {
             background: #125ea2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .instructions {
+            background: rgba(25, 118, 210, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .instructions h3 {
+            color: #1976d2;
+            margin-top: 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Visualizações Interativas</h1>
-        <p>Abaixo estão as métricas calculadas a partir do grafo de transações:</p>
+        <h1>Visualização Interativa da Rede</h1>
         
-        <!-- Informações dinâmicas sobre o grafo -->
-        <p><strong>Número de Nós:</strong> {{ num_vertices }}</p>
-        <p><strong>Número de Arestas:</strong> {{ num_links }}</p>
-        
-        <!-- Exemplo de visualização interativa -->
-        <iframe src="{{ url_for('static', filename='graficos/rede_interativa.html') }}"></iframe>
-        
-        <a href="{{ url_for('home') }}">Voltar para a Página Inicial</a>
+        <div class="stats-card">
+            <div class="stat">
+                <div class="stat-value">{{ num_nodes }}</div>
+                <div class="stat-label">Nós na Rede</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">{{ num_edges }}</div>
+                <div class="stat-label">Conexões</div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>Como interagir com o grafo:</h3>
+            <p>• Clique e arraste para mover os nós</p>
+            <p>• Passe o mouse sobre um nó para ver detalhes</p>
+            <p>• Use a roda do mouse para zoom in/out</p>
+            <p>• Clique em um nó para destacar suas conexões</p>
+        </div>
+
+        <h2>Grafo de Transações Bitcoin</h2>
+        <div class="graph-container">
+    <iframe 
+        src="{{ url_for('static', filename='visualizations/graph_output.html') }}" 
+        style="width: 100%; height: 100%; border: none;border-radius: 6px;min-height: 700px;background: #222"
+        allowfullscreen
+    ></iframe>
+</div>
+        </div>
+
+        <div class="btn-group">
+            <a href="{{ url_for('blog') }}">Voltar para Análise</a>
+            <a href="{{ url_for('home') }}">Página Inicial</a>
+        </div>
     </div>
 </body>
 </html>

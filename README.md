@@ -65,6 +65,7 @@ adr_projeto/
 ├── templates/
 │   ├── home.html
 │   └── blog.html
+│   └── visualizations.html
 └── static/
     └── fundo.png
 ```

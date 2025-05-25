@@ -100,3 +100,9 @@ bitcoin.links.sframe/
 bitcoin.vertices.sframe/
 
 dataset/static/dataset/bitcoin.*.csv
+
+# Biblioteca local (virtualenv ou libs locais)
+lib/
+
+static/images/*.png
+static/visualizations/*.html

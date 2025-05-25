@@ -19,3 +19,12 @@ test_basic.py
 ### Configurações específicas ###
 pytest.ini
 tempCodeRunnerFile.py
+
+# Biblioteca local (virtualenv ou libs locais)
+lib/
+
+bitcoin.links.sframe/
+bitcoin.vertices.sframe/
+dataset/static/dataset/bitcoin.*.csv
+static/images/*.png
+static/visualizations/*.html
