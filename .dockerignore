@@ -25,6 +25,6 @@ lib/
 
 bitcoin.links.sframe/
 bitcoin.vertices.sframe/
-dataset/static/dataset/bitcoin.*.csv
+static/dataset
 static/images/*.png
 static/visualizations/*.html

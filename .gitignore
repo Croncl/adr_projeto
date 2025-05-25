@@ -99,7 +99,7 @@ tempCodeRunnerFile.py
 bitcoin.links.sframe/
 bitcoin.vertices.sframe/
 
-dataset/static/dataset/bitcoin.*.csv
+static/dataset
 
 # Biblioteca local (virtualenv ou libs locais)
 lib/
