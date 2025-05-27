@@ -86,3 +86,36 @@ python -m unittest discover
 O projeto já possui integração contínua configurada via `.gitlab-ci.yml` para rodar testes automáticos no GitLab.
 
 ---
+
+Instrucoes para construir imagem docker:
+
+Gerar imagem docker, mas escolher uma distribuicao menor
+qual imagem base usar para ficar mais leve?
+ - alpine
+ - slim(essa)
+
+docker build -t adr_projeto .
+
+listat com docker image:
+docker images
+
+
+
+usa FROM python:3.12-slim
+
+altera no Dockerfile e no .gitlab-ci.yml
+
+
+executar o container:
+docker run -p 5000:5000 adr_projeto
+
+precisa super um ouro container com docker-in-docker e fazer o docher cli apontar para ele. Esse container temporario,chamamos de servico.
+
+adiciona services: ....
+package-job:
+  image: docker:stable #mudar para ficar mais robusta
+  services:
+    - docker:dind 
+  stage: package
+  script:
+    - docker build -t adr_projeto .
