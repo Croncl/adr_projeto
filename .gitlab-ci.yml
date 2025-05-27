@@ -1,4 +1,4 @@
-image: python:3.12-slim
+image: python:3.12
 
 stages:
   - build
@@ -37,4 +37,6 @@ package-job:
     - docker push $CI_REGISTRY_IMAGE #registry.gitlab.com/croncl/adr_projeto
 
     #- docker build -t adr_projeto .
+only:
+  - main
 
