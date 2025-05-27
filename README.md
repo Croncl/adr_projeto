@@ -123,6 +123,9 @@ package-job:
 ver deploy -> conainer regirtry para ver isntrucoes de como gerar.
 
 docker login registry.gitlab.com
+#coo passar credenciap para logar? senao falha: ver documentacao no gitlab
+
+#predefined variables gitlab ci
 
 autendticar no pipeline
 
@@ -131,3 +134,18 @@ docker build -t registry.gitlab.com/croncl/adr_projeto .
 
 depois:
 docker push registry.gitlab.com/croncl/adr_projeto
+
+
+package-job:
+  image: docker:stable
+  services:
+    - docker:dind
+  stage: package
+  script:
+    - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
+    #registry.gitlab.com, aqui para autenticar
+    #Gerar token
+    - docker build -t $CI_REGISTRY_IMAGE #registry.gitlab.com/croncl/adr_projeto .
+    - docker push CI_REGISTRY_IMAGE #registry.gitlab.com/croncl/adr_projeto
+
+    #- docker build -t adr_projeto .
