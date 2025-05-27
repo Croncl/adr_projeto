@@ -119,3 +119,15 @@ package-job:
   stage: package
   script:
     - docker build -t adr_projeto .
+
+ver deploy -> conainer regirtry para ver isntrucoes de como gerar.
+
+docker login registry.gitlab.com
+
+autendticar no pipeline
+
+depois:
+docker build -t registry.gitlab.com/croncl/adr_projeto .
+
+depois:
+docker push registry.gitlab.com/croncl/adr_projeto
