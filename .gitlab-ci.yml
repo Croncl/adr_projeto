@@ -30,8 +30,7 @@ package-job:
   services:
     - docker:24.0.5-dind
   stage: package
-    variables:
-    DOCKER_DRIVER: overlay2  # Recomendado ao usar dind
+  before_script: []  # Sobrescreve o before_script para este job
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
     - docker build -t $CI_REGISTRY_IMAGE .
