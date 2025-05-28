@@ -6,6 +6,7 @@ stages:
   - package
 
 before_script:
+  - python -m pip install --upgrade pip
   - pip install -r requirements.txt
   - mkdir -p static/dataset
   - echo "src_id,dst_id,count,mindate,maxdate" > static/dataset/bitcoin.links.csv
@@ -31,10 +32,8 @@ package-job:
   stage: package
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
-
     - docker build -t $CI_REGISTRY_IMAGE
     - docker push $CI_REGISTRY_IMAGE 
-
 only:
   - main
 
