@@ -14,7 +14,6 @@ env/
 .gitignore
 .vscode/
 .idea/
-test_basic.py
 
 ### Configurações específicas ###
 pytest.ini
