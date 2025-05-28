@@ -20,9 +20,6 @@ test_basic.py
 pytest.ini
 tempCodeRunnerFile.py
 
-# Biblioteca local (virtualenv ou libs locais)
-lib/
-
 bitcoin.links.sframe/
 bitcoin.vertices.sframe/
 static/dataset
