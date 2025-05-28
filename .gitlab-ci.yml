@@ -26,14 +26,17 @@ test:
     - python -m unittest discover
 
 package-job:
-  image: docker:stable
+  image: docker:24.0.5  # Versão mais previsível e segura
   services:
-    - docker:dind
+    - docker:24.0.5-dind
   stage: package
+    variables:
+    DOCKER_DRIVER: overlay2  # Recomendado ao usar dind
   script:
     - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN
-    - docker build -t $CI_REGISTRY_IMAGE
+    - docker build -t $CI_REGISTRY_IMAGE .
     - docker push $CI_REGISTRY_IMAGE 
-only:
-  - main
+  rules:  # Substitui `only`, mais flexível
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: always  # Garante que o job sempre será executado na branch main
 
