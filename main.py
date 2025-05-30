@@ -1,11 +1,5 @@
-# -*- coding: utf-8 -*-
-from flask import Flask
-import secrets
-
-app = Flask(__name__)
-from views import *
-
-app.config["SECRET_KEY"] = secrets.token_hex(16)
+from app import app
+import views  # Isso registra as rotas
 
 if __name__ == "__main__":
     import os
