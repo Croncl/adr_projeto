@@ -96,7 +96,5 @@ pytest.ini
 tempCodeRunnerFile.py
 
 
-static/dataset
-
 # Biblioteca local (virtualenv ou libs locais)
 
