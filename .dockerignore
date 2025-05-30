@@ -18,6 +18,4 @@ build/
 *.egg-info/
 .ipynb_checkpoints/
 docs/_build/
-bitcoin.links.sframe/
-bitcoin.vertices.sframe/
 static/dataset/

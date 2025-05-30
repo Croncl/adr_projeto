@@ -95,9 +95,6 @@ test.sqlite3
 pytest.ini
 tempCodeRunnerFile.py
 
-#arquivos  do dataset
-bitcoin.links.sframe/
-bitcoin.vertices.sframe/
 
 static/dataset
 
