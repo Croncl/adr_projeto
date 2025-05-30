@@ -22,5 +22,3 @@ tempCodeRunnerFile.py
 bitcoin.links.sframe/
 bitcoin.vertices.sframe/
 static/dataset
-static/images/*.png
-static/visualizations/*.html

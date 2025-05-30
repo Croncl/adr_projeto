@@ -103,5 +103,3 @@ static/dataset
 
 # Biblioteca local (virtualenv ou libs locais)
 
-static/images/*.png
-static/visualizations/*.html
