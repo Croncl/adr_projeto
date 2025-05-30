@@ -9,5 +9,7 @@ COPY . .
 
 EXPOSE 5000
 
+# Use o formato shell para expandir a variável $PORT corretamente
+CMD gunicorn -b 0.0.0.0:$PORT main:app
+
 #CMD ["python", "main.py"]
-CMD ["gunicorn", "-b", "0.0.0.0:$PORT", "main:app"]
