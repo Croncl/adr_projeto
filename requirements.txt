@@ -9,3 +9,4 @@ seaborn
 pyvis
 dask
 pyarrow
+gunicorn
